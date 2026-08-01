@@ -79,8 +79,10 @@ Calendar writes — batched into one confirmation, never one per item.
 
 - **Phases 0–4 are COMPLETE.** Protocol, interview, spec v2, Notion basics, Inbox built,
   loop proven with real data, overnight triage + morning brief scheduled and live.
-- **Phase 5 structure BUILT 2026-08-01 (Claude Code); awaiting Dio's structure review, then
-  the aesthetic pass.** Everything below under "Phase 5 build record".
+- **Phase 5 structure BUILT 2026-08-01 (Claude Code); structure APPROVED by Dio same day
+  ("shape is ok", mission control ok).** Remaining: aesthetic pass (owner/timing being
+  decided), Dio's four manual view-filter taps, then triage v2 + brief v2 rewrite in Cowork.
+  Everything below under "Phase 5 build record".
 
 ### Phase 5 build record (2026-08-01)
 
