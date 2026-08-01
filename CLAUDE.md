@@ -57,8 +57,9 @@ almost nothing, and take all the organising work off him.**
 5. **The day arrives as an order, not a list.** Overview, then today in a decided sequence.
 6. **Every filed item shows the assumption.** One visible line: what you guessed.
 7. **Two-way doors yours, one-way doors his.**
-8. **No rule gets set before there's data for it.** Limits and categories are derived from
-   what accumulates, never guessed and imposed.
+8. **Architecture is planned upfront; limits wait for evidence.** The full workflow gets
+   designed on paper and approved by Dio before building — that's how he works. Only numeric
+   limits (caps, quotas) must wait for real usage evidence.
 
 ---
 
@@ -74,32 +75,96 @@ Calendar writes — batched into one confirmation, never one per item.
 
 ---
 
-## Current state
+## Current state (updated 2026-08-01, end of day)
 
-- Phases 0 and 1 complete: protocol agreed, interview done, spec v2 approved, Notion basics taught.
-- **Phase 2 in progress.** The Inbox database was built and seeded with 3 example rows on
-  2026-08-01, exactly to the schema below: https://app.notion.com/p/d8aa86c5ab1e471fbfcdbcf735d8cf92
-  (data source ID: `ad464194-0f80-4cff-8894-3b1941bfc2ee`). Awaiting Dio's review; capture
-  channels beyond chat (Notion quick-add, dictation, forwarded email) not yet set up.
-- Notion workspace contained only Notion's own starter templates (20 pages, dated Jan 2024).
-  Dio may bin them himself; nothing depends on it.
-- **The Notion connector has no delete tool.** Never promise to delete anything in Notion.
+- **Phases 0–4 are COMPLETE.** Protocol, interview, spec v2, Notion basics, Inbox built,
+  loop proven with real data, overnight triage + morning brief scheduled and live.
+- **Phase 5 is next: full architecture** — planned completely on paper first, approved by
+  Dio, then built. Blueprint drafted (see repo / chat).
 
-## Phase 2 — what to build
+### Live infrastructure
 
-One database, `Inbox`. Every field is populated by Claude, never by Dio.
+- **Inbox database**: `d8aa86c5-ab1e-471f-bfcd-bcf735d8cf92`, data source
+  `ad464194-0f80-4cff-8894-3b1941bfc2ee`. Type select now includes `area` (added when
+  Dio's pillars arrived — real data forced the schema change). ~24 items filed, each with
+  an assumption line.
+- **Seven pillars** exist as `area` items: Faith, Family, Health, Finances & admin,
+  Learning & research, Work & business, Order-flow trading (its own pillar at Dio's
+  explicit request — it sits beside his business, not inside it).
+- **Morning Brief page**: `3afa4e35-74a0-812a-bf64-ce962680d18f` — rewritten daily.
+- **Scheduled tasks** (server-side, run without any session):
+  - `trig_01UdbAS9Dh2Hz21SMDTK4Wwq` — overnight triage, 02:30 UTC (04:30 NL summer).
+  - `trig_0177BfPT4WgxvxkDozg6Crvk` — morning brief, 03:30 UTC (05:30 NL summer),
+    push notification carries the single most important line.
+  - **DST warning**: schedules are UTC. When NL switches to winter time (late October),
+    both fire an hour early local — shift them then.
+- Notion workspace still contains Notion's starter templates; Dio may bin them himself.
+  **The Notion connector has no delete tool.** Never promise to delete anything in Notion.
 
-| Field | Type | Notes |
-|---|---|---|
-| What it is | Title | His words, near verbatim |
-| Type | Select | task, idea, note, commitment, dated admin, habit, question |
-| Belongs to | Text (relation later) | Empty allowed |
-| When | Date | Only if stated or clearly implied. Never invented |
-| My assumption | Rich text | What you guessed and why |
-| Status | Select | new, sorted, parked, done |
-| Captured | Created time | Automatic |
+### ⚠️ STAGING MODE — read this first
 
-Seed it with 3 example rows so it isn't an empty shell, then stop and show him.
+Dio's explicit instruction (2026-08-01): **everything currently in the system is TEST DATA.**
+The 24 Inbox items, the tasks, the dates, the onderneming, the habits — treat them as sample
+content for building and testing, NOT as live commitments. Do not chase him about deadlines,
+do not ask for done-when dates on his real projects, do not surface "Needs your yes" items
+about his personal life. The job right now is exactly two things: make the system WORK the
+way he specified, and make it LOOK the way he wants. When both are true, he declares
+**go-live**: sample content gets archived, he loads his real life in, and only then do
+deadlines, briefs and nagging become real. The seven pillars stay — they're architecture,
+not content.
+
+### Phase 5 — APPROVED, build it (this is your job if you're reading this in Claude Code)
+
+Blueprint approved by Dio 2026-08-01 with three amendments (D11–D13):
+
+0. **BOTH SCHEDULED TASKS ARE PAUSED** (fix 1 — race prevention). Do not re-enable them;
+   that happens from the Cowork session after the build, when their prompts are rewritten
+   for the new structure. Until then, chat captures are filed live and quick-adds wait.
+1. **Databases to create**: Areas (7 pillars, promoted from Inbox items), Projects
+   (required "done-when" field; progress = rollup % of tasks done; decisions log inside
+   each page), Tasks (incl. dated admin + commitments; relations to Projects and Areas),
+   Habits (his 5 practices + a daily-log database behind them; streaks computed, never typed).
+   **Notes = one Notes database** (fields: note, project relation, pillar relation), but
+   every project page embeds a linked view of it filtered to that project — so notes READ
+   in-place, per Dio's wish, while staying queryable, linkable from two projects, and safe
+   from agent-edit/manual-layout collisions (D12 as amended by D14).
+2. **Inbox becomes a buffer**: keeps its schema; triage routes items OUT to their homes and
+   leaves the Inbox row as a receipt (status sorted + link to destination). Drains hourly.
+3. **Relations**: Task→Project (optional), Task→Area (required if no project), Project→Area
+   (required), Habit→Area. Progress and streaks are rollups/computed — never typed by anyone.
+4. **Views**: Today, By pillar (board), Calendar, Waiting on, Parked, Streaks. Plus on the
+   Inbox: a default view filtered to Status = new (so receipts are invisible), and a
+   "Receipts" view of sorted rows for the monthly archive sweep (fix 3).
+5. **Migration**: route the ~24 existing Inbox items. Ask Dio for each real project's
+   done-when — that's his decision, not a guess.
+6. **Mission control**: one page, blocks = Today / Pillars health / Projects with progress /
+   Streaks / Waiting on / Coming up / Parked. Dio wants it BEAUTIFUL — icons, covers,
+   callouts, clean layout. Do a dedicated aesthetic pass; Canva is available for cover art.
+   Whatever the API can't style, leave crisp and tell Dio the two manual drags that finish it.
+7. **After the build**: tell Dio to return to the Cowork session so the triage + brief
+   scheduled prompts get rewritten to route into the new structure (schedulers live there),
+   tested end-to-end (one dummy "new" item, fire the trigger manually, verify it routed —
+   this is the headless-Notion-auth test, fix 2), and re-enabled.
+
+### Triage v2 / brief v2 spec (rewritten in Cowork after build — fixes 2–7)
+
+- **Heartbeat**: the brief ALWAYS opens with "Triaged N since yesterday." A missing brief
+  or missing number is itself the alarm that automation broke.
+- **Habit recovery**: the brief asks one question — "Yesterday's habits: which happened?" —
+  because streaks must not depend on Dio remembering to tick (that contradicts the premise).
+- **Urgency escape hatch**: triage batches ambiguity into "Needs your yes", EXCEPT items
+  both ambiguous and possibly dated within 48h — those push to his phone immediately.
+- **Done-when audit**: every triage pass checks for projects missing done-when (hand-created
+  ones will lack it; Notion can't enforce required fields) and queues them for his yes.
+- **Receipt sweep**: on the 1st of each month the brief asks Dio to archive the Receipts
+  view — 30 seconds, manual, his job only because the connector cannot delete/archive.
+
+### Open items
+
+- The onderneming (business closure) has real deadlines but no date recorded yet — chase it.
+- Triage now runs HOURLY (trigger renamed "Second brain — hourly triage"). Ambiguous items:
+  best-guess filing + flag; questions surface in the brief's "Needs your yes", never as
+  interruptions (D11).
 
 ## Failure signals — stop and raise immediately
 

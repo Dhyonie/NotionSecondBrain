@@ -27,8 +27,10 @@ item, or tidies a backlog. Capture reaches it from wherever he happens to be.
 7. **Two-way doors are Claude's, one-way doors are his.** Reversible without asking; irreversible,
    structural, or visible to another person waits for his yes. Claude does the thinking and all
    the labour — he makes the call in one tap.
-8. **No rule gets set before there's data for it.** Limits, categories and structures are derived
-   from what accumulates, never guessed in advance and imposed.
+8. **Architecture is planned upfront; limits wait for evidence.** The full workflow and
+   infrastructure get designed on paper and approved by Dio before anything is built — that's how
+   he works. What may NOT be invented in advance are numeric limits (caps, quotas, "max N
+   projects"): those only get set once real usage shows they're needed.
 
 ## The daily loop
 
@@ -51,7 +53,7 @@ One database. Every field populated by Claude.
 | Field | Type | Why it exists |
 |---|---|---|
 | What it is | Title | His words, near verbatim. Rewriting loses what helps him recognise it later. |
-| Type | Select | task, idea, note, commitment, dated admin, habit, question. Drives everything downstream. |
+| Type | Select | task, idea, note, commitment, dated admin, habit, question, area. Drives everything downstream. ("area" added when Dio's pillars arrived.) |
 | Belongs to | Text → relation later | Project or area. Empty allowed — an unattached thought is still worth keeping. |
 | When | Date | Only if stated or clearly implied. Never invented. |
 | My assumption | Rich text | What Claude guessed. A field rather than a chat message, because chat scrolls away. |
@@ -97,13 +99,13 @@ is structured; calendar writes, batched into one confirmation rather than one pe
 | 0 | Foundations — protocol, context, capture skill | done |
 | — | Interview and spec | done |
 | 1 | Notion as a user | done |
-| 2 | Inbox + capture channels | **next** |
-| 3 | Prove the loop with ten real things | |
-| 4 | Triage + the 05:30 brief | |
-| 5 | Structure — Tasks, Projects, Notes, Habits | |
-| 6 | Mission control | |
+| 2 | Inbox + capture channels | done — built via Claude Code, verified |
+| 3 | Prove the loop with real data | done — 24 items incl. 7 pillars; schema gained "area" |
+| 4 | Triage + the 05:30 brief | done — both live as scheduled tasks (see CLAUDE.md) |
+| 5 | Structure — full architecture, planned on paper first, then built | **next** |
+| 6 | Mission control | folded into the phase-5 blueprint |
 | 7 | App project workspace — decisions log, open questions, specs | |
-| 8 | Automate the edges; set limits from evidence if needed | |
+| 8 | Automate the edges; set numeric limits from evidence if needed | |
 
 ## Known constraints
 

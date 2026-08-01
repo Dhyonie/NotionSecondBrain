@@ -18,23 +18,23 @@ what actually accumulated rather than by what we guessed would.
 **✓ Phase 1 · Notion as a user** — page, database, property, view, relation. Enough to never feel
 lost in his own system; not enough to build one.
 
-**Phase 2 · Inbox + capture channels** — one database, seeded with examples, plus every route into
-it. *Why one box and not six:* with a single destination, capture can never be filed wrongly, so
+**✓ Phase 2 · Inbox + capture channels** — built via Claude Code, verified from Cowork. *Why one box and not six:* with a single destination, capture can never be filed wrongly, so
 there's no hesitation — and hesitation is what kills capture. Splitting capture from sorting is
 **capture-then-clarify**, from GTD. The inbox is meant to be unsorted.
 
-**Phase 3 · Prove the loop** — he dumps ten real things, messy, no editing. Claude files all ten
-and shows every assumption. *Why real data:* fields get designed from what turned up. Fields
+**✓ Phase 3 · Prove the loop** — 24 real items filed with assumptions shown; his dump surfaced
+the seven life pillars and forced "area" into the schema. *Why real data:* fields get designed from what turned up. Fields
 invented in advance and never filled are the commonest reason a Notion setup gets abandoned.
 
-**Phase 4 · Triage + the 05:30 brief** — the scheduled sweep that sorts the inbox and asks only
-about genuine forks. *Why this decides everything:* an inbox with no review becomes a junkyard in
+**✓ Phase 4 · Triage + the 05:30 brief** — both live as server-side scheduled tasks; brief is a
+≤5-item sequence, under 60 seconds, push carries the one line that matters. *Why this decides everything:* an inbox with no review becomes a junkyard in
 about two weeks, and once he stops trusting it he stops using it. This is the **review** half of
 GTD — the part nearly everyone skips, and the reason nearly everyone's system dies.
 
-**Phase 5 · Structure** — Tasks, Projects, Notes, Habits, and the relations between them. *Why
-here and not earlier:* by now real data tells us the shape, so we're describing rather than
-guessing. Doing it at phase 2 would be **premature optimisation**.
+**Phase 5 · Structure — NEXT** — the full architecture: Areas, Projects, Tasks, Notes, Habits,
+relations, views and mission control, **planned completely on paper and approved by Dio before
+any of it is built** (per corrected rule 8 / D10). Mission control (old phase 6) is part of this
+blueprint rather than a separate phase.
 
 **Phase 6 · Mission control** — the dashboard. Built once there's something worth showing, though
 a simple version exists from phase 2 so he's never staring at an empty shell.
