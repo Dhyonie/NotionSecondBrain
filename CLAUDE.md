@@ -79,8 +79,39 @@ Calendar writes — batched into one confirmation, never one per item.
 
 - **Phases 0–4 are COMPLETE.** Protocol, interview, spec v2, Notion basics, Inbox built,
   loop proven with real data, overnight triage + morning brief scheduled and live.
-- **Phase 5 is next: full architecture** — planned completely on paper first, approved by
-  Dio, then built. Blueprint drafted (see repo / chat).
+- **Phase 5 structure BUILT 2026-08-01 (Claude Code); awaiting Dio's structure review, then
+  the aesthetic pass.** Everything below under "Phase 5 build record".
+
+### Phase 5 build record (2026-08-01)
+
+All under the "Second brain — system" page (`3afa4e35-74a0-8122-996a-e9bff8e2b500`),
+except Mission control which is top-level (`3afa4e35-74a0-8104-808c-dd3a10cf35b5`).
+
+| Database | Data source ID |
+|---|---|
+| Areas (7 pillars seeded) | `7cf4fea9-14ae-43a8-aaf8-7f3e4817f726` |
+| Projects (4 seeded) | `5b8f20be-6b78-4ad0-8cff-10bad42ef39b` |
+| Tasks (4 seeded) | `97e8055f-fd08-4c77-8838-ca8565631357` |
+| Habits (5 seeded) | `12cacfce-4a76-43fd-b91e-edff361ae6c9` |
+| Habit log (empty until briefs run) | `537878eb-3cc4-4f21-b4ee-3b80d871a883` |
+| Notes (4 seeded) | `d8c3d520-cd48-47ba-8842-a5e59f15e5f0` |
+
+- Relations: Task→Project ('Tasks' synced), Task→Area, Project→Area, Habit→Area,
+  Habit log→Habit ('Log' synced), Note→Project ('Notes' synced), Note→Pillar.
+  Projects.Progress = rollup percent_checked of Tasks.Done. Habits."Days done" = rollup
+  checked of Log.Done. Habits.Streak = number, computed by triage v2, never typed.
+- Tasks."Today order" (number): triage writes the day's sequence; Today views sort by it.
+- Views: Tasks (Today / By pillar board / Calendar / Waiting on / Parked), Habits (Streaks),
+  Inbox default renamed "Capture" filtered Status=new + "Receipts" view (Status≠new).
+  Mission control: Today / Pillars / Projects / Streaks / Waiting on / Coming up / Parked.
+- All 24 Inbox rows are receipts: Status=sorted, "→ Filed:" link in My assumption.
+- **API limitation found**: view DSL silently drops FILTER on relation properties (grouping
+  works). The four "Notes — <project>" views embedded in project pages are therefore
+  UNFILTERED until Dio adds the one-tap filter in the app (goes on the D13 manual-finish
+  list), or until the aesthetic pass finds a better shape. Also: no relative-date filters,
+  so "Coming up" shows all undone dated admin, not a rolling fortnight — triage keeps it
+  honest instead.
+- Scheduled tasks remain PAUSED per blueprint step 0. Not touched this session.
 
 ### Live infrastructure
 
