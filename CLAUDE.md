@@ -75,14 +75,17 @@ Calendar writes — batched into one confirmation, never one per item.
 
 ---
 
-## Current state (updated 2026-08-01, end of day)
+## Current state (updated 2026-08-02)
 
-- **Phases 0–4 are COMPLETE.** Protocol, interview, spec v2, Notion basics, Inbox built,
-  loop proven with real data, overnight triage + morning brief scheduled and live.
-- **Phase 5 structure BUILT 2026-08-01 (Claude Code); structure APPROVED by Dio same day
-  ("shape is ok", mission control ok).** Remaining: aesthetic pass (owner/timing being
-  decided), Dio's four manual view-filter taps, then triage v2 + brief v2 rewrite in Cowork.
-  Everything below under "Phase 5 build record".
+- **Phases 0–5 are COMPLETE.** Protocol, interview, spec v2, Notion basics, Inbox, loop
+  proven with real data, triage + brief, and the full structure (Areas, Projects, Tasks,
+  Habits + log, Notes, mission control).
+- **Phase 5 closed 2026-08-02.** Structure built in Claude Code and approved by Dio
+  ("shape is ok"); automations v2 installed, end-to-end tested and re-enabled from Cowork
+  (D16). **The system is feature-complete in staging.**
+- **Still open before go-live**: (a) the aesthetic pass on mission control — deferred at
+  Dio's call, owner not yet decided; (b) Dio's four manual view-filter taps; (c) the
+  go-live checklist below.
 
 ### Phase 5 build record (2026-08-01)
 
@@ -113,7 +116,31 @@ except Mission control which is top-level (`3afa4e35-74a0-8104-808c-dd3a10cf35b5
   list), or until the aesthetic pass finds a better shape. Also: no relative-date filters,
   so "Coming up" shows all undone dated admin, not a rolling fortnight — triage keeps it
   honest instead.
-- Scheduled tasks remain PAUSED per blueprint step 0. Not touched this session.
+- Scheduled tasks were PAUSED during the build per blueprint step 0; re-enabled 2026-08-02
+  after the end-to-end test (see "Automations v2" below).
+
+### Automations v2 — LIVE (verified 2026-08-02, from Cowork)
+
+- Triage v2 and brief v2 prompts (drafted here as `docs/prompts/*.md`) are installed on the
+  scheduled tasks and RE-ENABLED after a passed end-to-end test: dummy Inbox item → routed
+  to Tasks (Kind set, "on Monday" parsed to 2026-08-03, Area relation linked, assumption
+  written) → Inbox row became a receipt with a Filed link → ledger incremented to triaged=1.
+  **Headless Notion auth works — fix 2 closed.**
+- Ledger lives at the bottom of the Morning Brief page: "TRIAGE LEDGER: triaged=N" plus
+  "QUESTIONS:" — currently holding the 4 done-when questions from the audit, to be answered
+  at go-live, not before (staging).
+- Hourly triage at :36; brief daily 03:30 UTC. DST: shift both an hour in late October.
+- Verified from Claude Code 2026-08-02: E2E task row and ledger both present in Notion.
+
+### Go-live checklist (when Dio says the system works AND looks right)
+
+1. Dio approves function + look.
+2. Archive the test content (his job — the connector cannot archive).
+3. He loads his real life in.
+4. Delete the ⚠️ STAGING blocks from BOTH trigger prompts — this is what turns pushes,
+   deadline-chasing and "Needs your yes" back on.
+5. Answer the done-when questions sitting on the ledger.
+6. Re-time the brief if his commute has changed.
 
 ### Live infrastructure
 
@@ -192,12 +219,12 @@ Blueprint approved by Dio 2026-08-01 with three amendments (D11–D13):
 - **Receipt sweep**: on the 1st of each month the brief asks Dio to archive the Receipts
   view — 30 seconds, manual, his job only because the connector cannot delete/archive.
 
-### Open items
+### Open items (all deferred to go-live per D15)
 
-- The onderneming (business closure) has real deadlines but no date recorded yet — chase it.
-- Triage now runs HOURLY (trigger renamed "Second brain — hourly triage"). Ambiguous items:
-  best-guess filing + flag; questions surface in the brief's "Needs your yes", never as
-  interruptions (D11).
+- The onderneming date and done-when answers for the four real projects — they sit on the
+  ledger; do NOT chase them during staging.
+- Triage runs HOURLY. Ambiguous items: best-guess filing + flag; questions surface in the
+  brief's "Needs your yes", never as interruptions (D11).
 
 ## Failure signals — stop and raise immediately
 

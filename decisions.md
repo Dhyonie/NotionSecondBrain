@@ -196,3 +196,17 @@ architecture.
 
 **Why.** He wants to judge and shape the machine without his real obligations tangled in
 it. Standard staging/production separation, applied to a life system.
+
+---
+
+## D16 — Automations v2 live; end-to-end test passed
+**2026-08-02**
+
+Triage v2 (routing, receipts, ledger, Today order, streaks) and brief v2 (heartbeat, ≤5
+sequence, habit recovery, batched questions) installed on the scheduled tasks. End-to-end
+test: dummy Inbox item routed correctly headlessly — Kind set, "on Monday" parsed to a real
+date, Area relation linked, assumption written, receipt left with Filed link, ledger
+incremented. Both triggers re-enabled. Headless Notion access confirmed, closing fix 2.
+
+**The system is now feature-complete in staging.** Remaining before go-live: Dio's verdict
+on function and look, then the go-live checklist in CLAUDE.md.
