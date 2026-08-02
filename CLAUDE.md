@@ -83,9 +83,14 @@ Calendar writes — batched into one confirmation, never one per item.
 - **Phase 5 closed 2026-08-02.** Structure built in Claude Code and approved by Dio
   ("shape is ok"); automations v2 installed, end-to-end tested and re-enabled from Cowork
   (D16). **The system is feature-complete in staging.**
-- **Still open before go-live**: (a) the aesthetic pass on mission control — deferred at
-  Dio's call, owner not yet decided; (b) Dio's four manual view-filter taps; (c) the
-  go-live checklist below.
+- **Dio's four manual view-filter taps are DONE** (verified 2026-08-02: all four
+  "Notes — <project>" views carry a relation_contains filter on their own project).
+  The D13 manual-finish list is now empty.
+- **Still open before go-live**: (a) the aesthetic pass on mission control — Dio is
+  designing it in the Claude design app from reference screenshots, then it gets built
+  here; (b) the go-live checklist below.
+- **User guide**: `docs/user-guide.html` (also published as an artifact) — how Dio
+  actually uses the system, phone and laptop. Keep it current when behaviour changes.
 
 ### Phase 5 build record (2026-08-01)
 
@@ -112,8 +117,8 @@ except Mission control which is top-level (`3afa4e35-74a0-8104-808c-dd3a10cf35b5
 - All 24 Inbox rows are receipts: Status=sorted, "→ Filed:" link in My assumption.
 - **API limitation found**: view DSL silently drops FILTER on relation properties (grouping
   works). The four "Notes — <project>" views embedded in project pages are therefore
-  UNFILTERED until Dio adds the one-tap filter in the app (goes on the D13 manual-finish
-  list), or until the aesthetic pass finds a better shape. Also: no relative-date filters,
+  UNFILTERED when created; **Dio applied the four filters by hand on 2026-08-02 and they
+  are verified in place.** Any NEW project page needs the same one-tap filter. Also: no relative-date filters,
   so "Coming up" shows all undone dated admin, not a rolling fortnight — triage keeps it
   honest instead.
 - Scheduled tasks were PAUSED during the build per blueprint step 0; re-enabled 2026-08-02
